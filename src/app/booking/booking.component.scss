@@ -1,0 +1,35 @@
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.example-full-width {
+    width: 100%;
+}
+
+.btn {
+    background-color: rgb(0, 0, 116);
+    color: white;
+    justify-content: flex-end;
+    margin: 10px;
+}
+
+.guestDetails {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: rgb(0, 0, 116);
+}
+
+.btn2 {
+    background-color: rgb(0, 0, 116);
+    color: white;
+    margin-left: auto;
+}
+
+.addGuest {
+    display: flex;
+    justify-content: center;
+}

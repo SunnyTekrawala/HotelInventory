@@ -1,0 +1,34 @@
+<div [hidden]="hideRooms">
+  Number of Rooms:
+  <div [innerText]="noOfRooms"></div>
+</div>
+<!-- <div>
+  <button (click)="addRoom()">Add Room</button>
+</div>
+<div>
+  <button (click)="editRoom()">Edit Room</button>
+</div>
+<div>
+  <button (click)="deleteRoom()">Delete Room</button>
+</div> -->
+<!-- <h1>Number of rooms: {{roomsCount$ | async}} </h1> -->
+
+<app-default-view></app-default-view>
+<div>
+  <input
+    type="number"
+    class="form-control"
+    placeholder="Price"
+    [formControl]="priceFilter"
+  />
+</div>
+<app-rooms-list
+  [rooms]="roomList"
+  [price]="priceFilter.value"
+  (selectedRoom)="selectRoom($event)"
+></app-rooms-list>
+
+<div *ngIf="selectedRoom">Room is available</div>
+<!-- 
+{{ room?.availableRooms ?? "No Rooms Available" }} -->
+<router-outlet></router-outlet>

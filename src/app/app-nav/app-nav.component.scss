@@ -1,0 +1,45 @@
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.Header {
+  background-color: rgb(0, 0, 116);
+}
+
+.title {
+  color: white;
+  margin: 0 auto;
+}
+
+.login {
+  background-color: white;
+  color: black;
+  justify-content: flex-end;
+  text-decoration: none;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
+.login img {
+  background-color: white;
+  height: 23px;
+}
+
+.main-title {
+  width: 100%;
+  display: flex;
+}

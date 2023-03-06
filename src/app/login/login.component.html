@@ -1,0 +1,31 @@
+<form action="" class="">
+  <div class="form-group">
+    <label class="label"> User Id</label>
+    <input
+      type="email"
+      class="form-control"
+      name="name"
+      [(ngModel)]="email"
+      placeholder="Enter your User ID"
+    />
+  </div>
+  <div class="form-group">
+    <label class="label"> Password </label>
+    <input
+      type="password"
+      class="form-control"
+      name="name"
+      [(ngModel)]="password"
+      placeholder="Enter your password"
+    />
+  </div>
+  <div class="form-group">
+    <button type="button" class="btn btn-primary" (click)="Login()">
+      Login
+    </button>
+  </div>
+</form>
+<h2 style="color: rgb(0, 0, 116)">
+  To use the functions please login with the Employee id password provided by
+  the company.
+</h2>

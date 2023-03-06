@@ -1,0 +1,189 @@
+<form [formGroup]="bookingForm" class="example-form" (ngSubmit)="addBooking()">
+  <div formGroupName="personalDetails">
+    <mat-accordion class="example-headers-align">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Personal Details </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Room Id</mat-label>
+          <input type="number" matInput formControlName="roomId" />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Guest Email ID</mat-label>
+          <input
+            type="email"
+            matInput
+            formControlName="guestEmail"
+            placeholder="Ex. pat@example.com"
+          />
+          <mat-error *ngIf="bookingForm.get('guestEmail')?.hasError('email')">
+            Please enter a valid email address
+          </mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Check-In Date</mat-label>
+          <input type="date" matInput formControlName="checkinDate" />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Check-Out Date</mat-label>
+          <input type="date" matInput formControlName="checkoutDate" />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Booking Status</mat-label>
+          <input type="text" matInput formControlName="bookingStatus" />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Booking Amount</mat-label>
+          <input type="number" matInput formControlName="bookingAmount" />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Booking Date</mat-label>
+          <input type="date" matInput formControlName="bookingDate" />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Mobile Number</mat-label>
+          <input type="number" matInput formControlName="mobileNumber" />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Guest Name</mat-label>
+          <input type="text" matInput formControlName="guestName" />
+        </mat-form-field>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+
+  <div formGroupName="address">
+    <mat-accordion class="example-headers-align">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Address </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Address line-1</mat-label>
+          <input
+            type="text"
+            matInput
+            formControlName="addressLine1"
+            placeholder="Address Line1"
+          />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Address line-2</mat-label>
+          <input
+            type="text"
+            matInput
+            formControlName="addressLine2"
+            placeholder="Address Line2"
+          />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Guest City</mat-label>
+          <input
+            type="text"
+            matInput
+            formControlName="city"
+            placeholder="City"
+          />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Guest State</mat-label>
+          <input
+            type="text"
+            matInput
+            formControlName="state"
+            placeholder="State"
+          />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Guest Country</mat-label>
+          <input
+            type="text"
+            matInput
+            formControlName="country"
+            placeholder="Country"
+          />
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Guest Zip Code</mat-label>
+          <input
+            type="text"
+            matInput
+            formControlName="zipCode"
+            placeholder="Zip code"
+          />
+        </mat-form-field>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+
+  <div formArrayName="guests">
+    <mat-accordion class="example-headers-align">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Guests Details </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="addGuest">
+          <button
+            mat-raised-button
+            class="btn"
+            type="button"
+            (click)="addGuest()"
+          >
+            Add Guest
+          </button>
+        </div>
+        <div *ngFor="let guest of guests.controls; let i = index">
+          <div [formGroupName]="i">
+            <div class="guestDetails">
+              Guest {{ i + 1 }} details
+              <button
+                mat-raised-button
+                class="btn2"
+                type="button"
+                (click)="removeGuest(i)"
+              >
+                <mat-icon>delete_forever</mat-icon>
+              </button>
+            </div>
+            <mat-form-field class="example-full-width">
+              <mat-label>Guest {{ i + 1 }} Name </mat-label>
+              <input
+                type="text"
+                matInput
+                formControlName="guestName"
+                placeholder="guestname"
+              />
+            </mat-form-field>
+
+            <mat-form-field class="example-full-width">
+              <mat-label>Guest {{ i + 1 }} Age</mat-label>
+              <input
+                type="number"
+                matInput
+                formControlName="age"
+                placeholder="Guest Age"
+              />
+            </mat-form-field>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+  <button mat-raised-button class="btn">Submit</button>
+</form>
